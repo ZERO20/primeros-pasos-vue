@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="ejemplo">
+        <div>
+            <ul>
+                <li v-for="(lenguaje, index) in lenguajes" :key="index"><!-- key hace más eficiente y con mejor rendimiento al tener como referencia cual objeto tiene que actuar-->                    
+                    <a v-bind:href="lenguaje.url" target="_blank">{{ lenguaje.nombre}}</a><!-- v-bind:href puede abreviarse como :href -->
+                </li>
+            </ul>
+            <div v-if="mostrar">
+                {{ mensaje }}
+                <img v-bind:src="imagen" alt="Logo Vue Js">
+                <!-- la directiva v-bind:src puede abreviarse con :src-->
+            </div>
+            <button v-on:click="toggleMostrar()">mostrar/Ocultar</button>
+            <!-- de igual manera que otros atributos los de tipo evento se pueden abreviar con el signo @ -> @click -->
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
